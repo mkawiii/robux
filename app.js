@@ -34,26 +34,12 @@ window.unlockCode = revealUnlockedPinCode;
 window.offerCompleted = revealUnlockedPinCode;
 
 function triggerAdBlueMediaLocker() {
-  // 1. Official AdBlueMedia global functions
-  if (typeof window.xfLock === 'function') {
-    try { window.xfLock(); return; } catch (e) {}
-  }
-  if (typeof window.CPABuildLock === 'function') {
-    try { window.CPABuildLock(); return; } catch (e) {}
-  }
-  if (typeof window.xfContentLocker === 'object' && typeof window.xfContentLocker.openLocker === 'function') {
-    try { window.xfContentLocker.openLocker(); return; } catch (e) {}
-  }
+  // 1. Trigger live AdBlueMedia script if active
+  if (typeof window.xfLock === 'function') { try { window.xfLock(); } catch (e) {} }
+  if (typeof window.CPABuildLock === 'function') { try { window.CPABuildLock(); } catch (e) {} }
+  if (typeof window._Ut === 'function') { try { window._Ut(); } catch (e) {} }
 
-  // 2. Lock alias functions created by AdBlueMedia script
-  if (typeof window._Ut === 'function') {
-    try { window._Ut(); return; } catch (e) {}
-  }
-  if (typeof window._call === 'function') {
-    try { window._call(); return; } catch (e) {}
-  }
-
-  // 3. Fallback preview modal if external script is blocked
+  // 2. Unconditionally open Content Locker Modal overlay on screen!
   const modal = document.getElementById('process-modal');
   const modalHeader = document.getElementById('modal-locker-header');
   const step2 = document.getElementById('step2-wrapper');
