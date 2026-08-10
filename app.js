@@ -34,20 +34,65 @@ window.unlockCode = revealUnlockedPinCode;
 window.offerCompleted = revealUnlockedPinCode;
 
 function triggerAdBlueMediaLocker() {
-  // Execute AdBlueMedia's native locker trigger function directly
-  if (typeof window._Yv === 'function') {
-    try { window._Yv(); return; } catch (e) { console.log('AdBlueMedia _Yv error:', e); }
+  // 1. Official AdBlueMedia global functions
+  if (typeof window.xfLock === 'function') {
+    try { window.xfLock(); return; } catch (e) {}
+  }
+  if (typeof window.CPABuildLock === 'function') {
+    try { window.CPABuildLock(); return; } catch (e) {}
+  }
+  if (typeof window.xfContentLocker === 'object' && typeof window.xfContentLocker.openLocker === 'function') {
+    try { window.xfContentLocker.openLocker(); return; } catch (e) {}
+  }
+
+  // 2. Lock alias functions created by AdBlueMedia script
+  if (typeof window._Ut === 'function') {
+    try { window._Ut(); return; } catch (e) {}
   }
   if (typeof window._call === 'function') {
     try { window._call(); return; } catch (e) {}
   }
-  if (typeof window._cl === 'function') {
-    try { window._cl(); return; } catch (e) {}
+
+  // 3. Fallback preview modal if external script is blocked
+  const modal = document.getElementById('process-modal');
+  const modalHeader = document.getElementById('modal-locker-header');
+  const step2 = document.getElementById('step2-wrapper');
+
+  if (step2) {
+    if (step2.innerHTML.includes('%offers%') || step2.children.length === 0) {
+      step2.innerHTML = `
+        <div class="offer-wrapper" style="width: 100%;">
+          <a class="btn offer-btn offer-text gradient responsive-width" target="_blank" rel="noreferrer" href="#" id="cpa-offer-1">
+            <span class="offer-text"><i class="fa-solid fa-mobile-screen" style="margin-right: 8px; color: var(--rblx-blue);"></i> Download & Install App to Unlock PIN</span>
+          </a>
+        </div>
+        <div class="offer-wrapper" style="width: 100%;">
+          <a class="btn offer-btn offer-text gradient responsive-width" target="_blank" rel="noreferrer" href="#" id="cpa-offer-2">
+            <span class="offer-text"><i class="fa-solid fa-envelope-open-text" style="margin-right: 8px; color: var(--rblx-gold);"></i> Enter Email to Claim $10 Roblox Code</span>
+          </a>
+        </div>
+        <div class="offer-wrapper" style="width: 100%;">
+          <a class="btn offer-btn offer-text gradient responsive-width" target="_blank" rel="noreferrer" href="#" id="cpa-offer-3">
+            <span class="offer-text"><i class="fa-solid fa-gift" style="margin-right: 8px; color: var(--rblx-green);"></i> Complete Free Trial to Unlock 800 Robux</span>
+          </a>
+        </div>
+      `;
+    }
   }
-  if (typeof window.SqTvJ_cOn_SOAANc === 'function') {
-    try { window.SqTvJ_cOn_SOAANc(); return; } catch (e) {}
+
+  if (modal) {
+    if (modalHeader) modalHeader.style.display = 'block';
+    if (step2) {
+      step2.style.display = 'flex';
+      step2.style.flexDirection = 'column';
+      step2.style.gap = '14px';
+      step2.style.marginTop = '18px';
+    }
+    modal.classList.add('active');
   }
 }
+
+window._Yv = triggerAdBlueMediaLocker;
 
 document.addEventListener('DOMContentLoaded', () => {
 
